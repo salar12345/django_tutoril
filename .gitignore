@@ -1,0 +1,11 @@
+.env
+venv
+storage
+data
+logs/*.log
+.idea
+__pycache__
+.pytest_cache
+.coverage
+# Translations
+*.mo
