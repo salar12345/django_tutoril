@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 
 
 class PublishedManager(models.Manager):
@@ -18,7 +19,7 @@ class Post(models.Model):
         PUBLISHED = "PB", "Published"
 
     title = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250)
+    slug = models.SlugField(max_length=250, unique_for_date='publish')
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -40,3 +41,14 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse(
+            'blog:post_detail',
+            args=[
+                self.publish.year,
+                self.publish.month,
+                self.publish.day,
+                self.slug
+            ]
+        )
