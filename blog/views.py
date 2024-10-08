@@ -1,6 +1,5 @@
 from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_POST
 from django.views.generic import ListView
