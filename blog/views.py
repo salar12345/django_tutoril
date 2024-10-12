@@ -1,3 +1,4 @@
+
 from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
@@ -9,7 +10,6 @@ from blog.forms import EmailPostForm, CommentForm
 from blog.models import Post
 
 from django.db.models import Count
-
 
 class PostListView(ListView):
     queryset = Post.published.all()
