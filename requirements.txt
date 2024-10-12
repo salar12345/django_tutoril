@@ -4,3 +4,4 @@ mysqlclient==2.2.4
 python-decouple==3.8
 sqlparse==0.5.1
 django-taggit==5.0.1
+markdown==3.6
